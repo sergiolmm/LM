@@ -24,23 +24,23 @@
 
 
     ; uso de bx com ponteiro para a memoria
-    mov     bx, offset buffer
-    ; obtem valor da 1 posicao de memoria
-    mov     al, BYTE ptr [bx]  ; endereçamento ....
-    cmp     al, 'A'
-    je      frase1
-    
+    mov     bx, offset buffer   
+    mov     al, BYTE ptr [bx]   ; obtem valor da 1 posicao de memoria
+    ; uso do if .. else
+    cmp     al, 'A'    
+    je      frase1 ; if ...
+    ; else ..
     mov dx, OFFSET fr2
     mov ah,9
     int 21h
-    jmp     fim
+    jmp     fim   ; vai para o fim senao executaria o codigo abaixo
 
 frase1:
     mov dx, OFFSET fr1
     mov ah,9
     int 21h
 
-fim:
+fim:            ; termina o programa
     mov ah,4Ch
     int 21h
 END
